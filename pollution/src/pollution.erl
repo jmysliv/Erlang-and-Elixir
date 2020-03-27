@@ -58,6 +58,7 @@ removeValue(Name, Date, Type, Monitor) when is_record(Monitor, monitor) ->
 getOneValue(Name, Date, Type, Monitor)  when is_record(Monitor, monitor) -> %%zwraca wartośc pomiaru
   maps:get({Name, Date, Type},(Monitor#monitor.measurements)).
 
+
 getStationMean(Name, Type, Monitor) when is_record(Monitor, monitor) -> %%oblicza średnia pomiaru dla danego typu i stacji
   Fu = fun({K_name, _, K_type}, _) ->
     case ((K_name == Name) and (K_type == Type)) of
@@ -98,8 +99,7 @@ getStationWithBiggestValue(Type, {Day, _}, Monitor) -> %%zwraca stacje która mi
   Biggest = maps:fold(Fu2,0,Map),
   Fu3 = fun(_, V) when V == Biggest -> true; (_, _) -> false end,
   S = maps:filter(Fu3, Map),
-  [Head |_] = maps:keys(S),
-  {Name, _, _} = Head,
+  [{Name, _, _} |_] = maps:keys(S),
   Name.
 
 getStationsThatExceedsLimit(Type, {Day, _}, Limit, Monitor) -> %%zwraca liste stacji które przekroczyły limit
