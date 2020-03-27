@@ -1,0 +1,17 @@
+P = pollution:createMonitor().
+P1 = pollution:addStation("Aleja Słowackiego", {50.2345, 18.3445}, P).
+P2 = pollution:addValue("Aleja Słowackiego", {{2020,3,17},{16,37,26}}, "PM10", 59, P1).
+P3 = pollution:addValue("Aleja Słowackiego", {{2020,3,17},{16,37,26}}, "PM2,5", 113, P2).
+P4 = pollution:addValue("Aleja Słowackiego", {{2020,3,17},{16,37,26}}, "PM2,5", 70, P3). %%zaktualizuje krotke powyzej, nie doda nowej
+P5 = pollution:addStation("AGH", {50.2345, 18.3445}, P4). %%nie doda, bo te same wspolrzedne
+P6 = pollution:addStation("AGH", {50.1000, 18.9000}, P4).
+P7 = pollution:addValue("AGH", {{2020,3,17},{16,37,26}}, "PM2,5", 21, P6).
+P8 = pollution:addValue("AGH", {{2020,3,17},{16,37,55}}, "PM2,5", 101, P7).
+pollution:getOneValue("AGH", {{2020,3,17},{16,37,55}}, "PM2,5", P8). %%zwróci 101
+pollution:getStationMean("AGH", "PM2,5", P8). %%zwroci średnia z 21 i 101 czyli 61
+pollution:getDailyMean("PM2,5", {{2020,3,17},{16,37,26}}, P8). %%zwroci srednia z 21, 101, 70, czyli 64
+pollution:getStationWithBiggestValue("PM2,5", {{2020,3,17},{16,37,26}}, P8). %%zwroci "AGH"
+pollution:getStationsThatExceedsLimit("PM2,5", {{2020,3,17},{16,37,26}}, 60, P8). %%zwroci „Aleja Słowackiego” i "AGH"
+P9 = pollution:removeValue("Aleja Słowackiego", {{2020,3,17},{16,37,26}}, "PM2,5", P8).
+pollution:getStationsThatExceedsLimit("PM2,5", {{2020,3,17},{16,37,26}}, 100, P9). %%teraz zwroci tylko AGH 
+

@@ -25,7 +25,7 @@ sum_digits(X) ->
   lists:foldl(Sum, 0, List_of_digits).
 
 find_numbers() ->
-  List = qsort:randomElems(10, 1, 1000000),
+  List = qsort:randomElems(1000000, 1, 1000000),
   Divided_by_3 = fun(X) when X rem 3 == 0 -> true; (_) -> false end,
   Fun = fun(X) ->
     Sum = fun_lab2:sum_digits(X),
