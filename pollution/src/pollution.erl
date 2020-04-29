@@ -28,7 +28,7 @@ checkNewStation(Name, {X, Y}, Monitor) -> %%Sprawdza czy mozna dodać nową stac
   end.
 
 %% dodaje nową stacje, po sprawdzeniu czy moze ja dodac
-addStation(Name, {X, Y}, Monitor)  when is_float(X) and is_float(Y) and is_record(Monitor, monitor) and is_list(Name)
+addStation(Name, {X, Y}, Monitor)  when is_float(X) and is_float(Y) and is_record(Monitor, monitor)
   and (X > -90) and (X < 90) and (Y > -180) and (Y < 180) ->
   case  checkNewStation(Name, {X, Y}, Monitor) of
       true -> #monitor{stations = (Monitor#monitor.stations)#{Name => {X, Y}}, measurements = (Monitor#monitor.measurements)};
@@ -45,7 +45,7 @@ checkStationExists(Name, Monitor) ->
   end.
 
 %%Dodaje, lub uaktualnia pomiar jeśli stacja istnieje
-addValue(Name, Date, Type, Value, Monitor) when is_record(Monitor, monitor) and is_list(Type) and (is_float(Value) or is_integer(Value))->
+addValue(Name, Date, Type, Value, Monitor) when is_record(Monitor, monitor) and (is_float(Value) or is_integer(Value))->
   case checkStationExists(Name, Monitor)  of
       true -> #monitor{stations = (Monitor#monitor.stations), measurements = (Monitor#monitor.measurements)#{{Name, Date, Type} => Value}};
       _ -> Monitor
