@@ -1,16 +1,16 @@
-defmodule PollutionData do
+defmodule PollutionDataStream do
   @moduledoc false
 
   def importLinesFromCSV() do
-    list = File.read!("pollution.csv") |> String.split("\n") |> Enum.map(& (parseLine(&1)))
+    list = File.stream!("pollution.csv")  |> Stream.map(& (parseLine(&1))) |> Enum.to_list
     IO.puts("#{length(list)}")
     list
   end
 
   def parseLine(line) do
     [date, time, latitude, longitude, value] = String.split(line, ",")
-    date = String.split(date, "-") |> Enum.reverse |> Enum.map(&(Integer.parse(&1) |> elem(0)))  |> :erlang.list_to_tuple()
-    {h, m} = String.split(time, ":") |> Enum.map(&(Integer.parse(&1) |> elem(0))) |> :erlang.list_to_tuple()
+    date = String.split(date, "-") |> Enum.reverse |> Stream.map(&(Integer.parse(&1) |> elem(0))) |> Enum.reduce({}, fn(element, tuple) -> Tuple.append(tuple, element) end)
+    {h, m} = String.split(time, ":") |> Stream.map(&(Integer.parse(&1) |> elem(0))) |> Enum.reduce({}, fn(element, tuple) -> Tuple.append(tuple, element) end)
     time = {h, m, 0}
     dateTime = {date, time}
     location = {Float.parse(latitude) |> elem(0), Float.parse(longitude) |> elem(0)}
