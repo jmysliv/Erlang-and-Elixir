@@ -10,6 +10,21 @@ defmodule Producer do
   end
 
   def handle_demand(demand, state) do
-    {:noreply, ["test", " ", "genstage"], state}
+    :timer.sleep(3)
+    quotes = ProgrammingQuotes.get_quotes(demand)
+    {:noreply, quotes, state}
+  end
+end
+
+defmodule ProgrammingQuotes do
+
+  def get_quote() do
+    {:ok, response} = Tesla.get("https://programming-quotes-api.herokuapp.com/quotes/random")
+    Poison.decode!(response.body) |>  Map.delete("_id") |> Map.delete("id")
+  end
+
+  def get_quotes(0) do [] end
+  def get_quotes(number) do
+    [get_quote()] ++ get_quotes(number-1)
   end
 end

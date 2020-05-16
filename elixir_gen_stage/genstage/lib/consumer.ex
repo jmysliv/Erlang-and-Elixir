@@ -6,11 +6,17 @@ defmodule Consumer do
   end
 
   def init(arg) do
-    {:consumer, :initial_state, subscribe_to: [ProducerConsumer]}
+    {:consumer, :initial_state, subscribe_to: [{ProducerConsumer, max_demand: 3}]}
   end
 
   def handle_events(data, from, state) do
-    IO.puts("#{data}")
+    print(data)
     {:noreply, [], state}
+  end
+
+  def print([]) do :ok end
+  def print([head | tail]) do
+    IO.inspect(head)
+    print(tail)
   end
 end

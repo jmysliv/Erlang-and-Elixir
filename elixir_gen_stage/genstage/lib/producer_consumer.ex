@@ -6,7 +6,7 @@ defmodule ProducerConsumer do
   end
 
   def init(arg) do
-    {:producer_consumer, :initial_state, subscribe_to: [Producer]}
+    {:producer_consumer, :initial_state, subscribe_to: [{Producer, max_demand: 3}]}
   end
 
   def handle_events(data, from, state) do
