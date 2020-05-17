@@ -1,8 +1,8 @@
 defmodule Producer do
   use GenStage
 
-  def start_link(initial) do
-    GenStage.start_link(Producer, initial, name: Producer)
+  def start_link(max_number) do
+    GenStage.start_link(Producer, max_number, name: Producer)
   end
 
   def init(max_number) do
@@ -10,7 +10,6 @@ defmodule Producer do
   end
 
   def handle_demand(demand, state)  when demand>0 and state>=demand do
-    :timer.sleep(3)
     {:noreply, ProgrammingQuotes.get_quotes(demand), state - demand}
   end
   def handle_demand(_, state) do {:noreply, [], state} end

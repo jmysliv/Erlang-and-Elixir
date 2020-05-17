@@ -9,7 +9,7 @@ defmodule ProducerConsumer do
     {:producer_consumer, initial, subscribe_to: [{Producer, max_demand: 3}]}
   end
 
-  def handle_events(data, from, state) do
+  def handle_events(data, _, state) do
     {:noreply,analyse(data), state}
   end
 
