@@ -5,7 +5,7 @@ defmodule App do
   end
 
   def run do
-    Producer.start_link(:initial)
+    Producer.start_link(5)
     ProducerConsumer.start_link()
     Consumer.start_link()
   end
