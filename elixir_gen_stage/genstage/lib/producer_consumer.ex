@@ -13,9 +13,8 @@ defmodule ProducerConsumer do
     {:noreply,analyse(data), state}
   end
 
-  def analyse([]) do [] end
-  def analyse([head | tail]) do
-    [Map.put(head, "result", sentiment_analysis(head["en"]))] ++ analyse(tail)
+  def analyse(data) do
+    data |> Enum.map(&(Map.put(&1, "result", sentiment_analysis(&1["en"]))))
   end
 
   def sentiment_analysis(text) do

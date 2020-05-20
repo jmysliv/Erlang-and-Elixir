@@ -27,13 +27,19 @@ Rozwiązanie przedstawione powyżej ma pewne wady, które występowały ogólnie
 
 Szczególnie to ostatnie może być niebezpieczne i może się przytrafić jeśli produkowanych jest więcej danych niż proces może przetwożyć. Dobrym przykładem w tym wypadku jest fabryka, w której pracownicy nie nadążają pakować wytwarzanych produktów.
 
-![fabryka](images/overflow.gif)
+<p align=center>
+  <img src=images/overflow.gif/>
+</p>
+
+
 
 ## Historia
 
 Powyższe problemy udało się rozwiązać w 2016 roku, kiedy to 14 lipca oficjalnie wypuszczono GenStage. Od tamtego czasu GenStage jest nieustannie rozwijany, głownie przez Jose Valima. Po kilku latach rozwoju, w lutym tego roku doczekaliśmy się wersji v1.0.0 Elixir GenStage. 
 
-![contributions](images/contributions.png)
+<p align=center>
+  <img src=images/contributions.png/>
+</p>
 
 GenStage był wprowadzany jako narzędzię do przetwarzania danych, ale nie tylko. Jednym z celów podczas wprowadzanie GenStage było również zastąpienie GenEvent. Rozwiązywał on kilka problemów związanych z GenEvent między innymi to, że zarówno menadżer zdarzeń jak i ich obsługa działały w jednym procesie. 
 
@@ -115,7 +121,10 @@ Schemat jest bardzo prosty, jednak pozwala nam tworzyć również bardziej skomp
 * Kolejek
 * Obsług zdarzeń
 
-![flow_example](images/flow.png)
+<p align=center>
+  <img src=images/flow.png/>
+</p>
+
 
 ## Demo
 
@@ -123,8 +132,144 @@ W celu przetestowania możliwości GenStage w praktyce stworzyłem mini-projekt 
 
 ### Opis projektu
 
+Celem projektu było zademonstrować sekwencyjne przetwarzanie danych przez GenStage. Postanowiłem więc przetwarzać cytaty dotyczącę programowania. Są one źródłem danych dla producenta, który wysyła je do konsumentów. Następnie cytaty są analizowane pod względem sentymentu. Na koniec można ustawić odpowiedni próg minimalny sentymentu, i program odfiltruje te z mniejszą wartością, a pozostałe zapisze do pliku. Pomysł można swobodnie rozszerzać o kolejnych konsumentów, w celu dalszego przetwarzania cytatów.
+
 ### Implementacja
+
+##### Producent
+
+Zadaniem producenta jest zaspokajać żądania konsumentów, danymi, w tym wypadku cytatami. Skorzystałem z API, które dostarcza losowe cytaty programistyczne. W celu wysyłania request-ów skorzystałem z Tesli, natomiast do przetworzonia JSON-a, wykorzystałem Poison. Parametr max_number określa maksymalną liczbę cytatów jakie chcemy przetworzyć.
+
+```elixir
+defmodule Producer do
+  use GenStage
+
+  def start_link(max_number) do
+    GenStage.start_link(Producer, max_number, name: Producer)
+  end
+
+  def init(max_number) do
+    {:producer, max_number}
+  end
+
+  def handle_demand(demand, state)  when demand>0 and state>=demand do
+    {:noreply, ProgrammingQuotes.get_quotes(demand), state - demand}
+  end
+  def handle_demand(_, state) do {:noreply, [], state} end
+
+end
+
+defmodule ProgrammingQuotes do
+
+  def get_quote() do
+    {:ok, response} = Tesla.get("https://programming-quotes-api.herokuapp.com/quotes/random")
+    Poison.decode!(response.body) |>  Map.delete("_id") |> Map.delete("id")
+  end
+
+  def get_quotes(0) do [] end
+  def get_quotes(number) do
+    [get_quote()] ++ get_quotes(number-1)
+  end
+end
+```
+
+##### Producent-Konsument
+
+Zadaniem producenta-konsumenta jest wykonywanie analizy sentymentu cytatu. W tym wypadku również skorzystałem z API, które analizuje tekst właśnie pod takim kątem. 
+
+```elixir
+defmodule ProducerConsumer do
+  use GenStage
+
+  def start_link do
+    GenStage.start_link(ProducerConsumer, :some_state, name: ProducerConsumer)
+  end
+
+  def init(initial) do
+    {:producer_consumer, initial, subscribe_to: [{Producer, max_demand: 3}]}
+  end
+
+  def handle_events(data, _, state) do
+    {:noreply,analyse(data), state}
+  end
+
+  def analyse(data) do
+    data |> Enum.map(&(Map.put(&1, "result", sentiment_analysis(&1["en"]))))
+  end
+
+  def sentiment_analysis(text) do
+    body = Poison.encode!(%{"text" => text})
+    {:ok, response} = Tesla.post("https://sentim-api.herokuapp.com/api/v1/", body, headers: [{"content-type", "application/json"}])
+    Poison.decode!(response.body) |>  Map.get("result")
+  end
+
+end
+```
+
+##### Konsument
+
+Na samym końcu konsument filtruje cytaty, których wartość sentymentu jest niższa niż ustalony próg - parametr threshold. Po odfiltrowaniu konsument zapisuje przetworzony cytaty w pliku result.txt
+
+```elixir
+defmodule Consumer do
+  use GenStage
+
+  def start_link(threshold) do
+    GenStage.start_link(Consumer, threshold)
+  end
+
+  def init(threshold) do
+    {:ok, file} = File.open("result.txt", [:write, :utf8])
+    {:consumer, %{:threshold => threshold, :file => file}, subscribe_to: [{ProducerConsumer, max_demand: 3}]}
+  end
+
+  def handle_events(data, _, state) do
+    Enum.filter(data, &(&1["result"]["polarity"] > state.threshold)) |> Enum.each(&(save_to_file(state.file, &1)))
+    {:noreply, [], state}
+  end
+
+  def save_to_file(file, result) do
+    IO.write(file, "Autor: #{result["author"]}\n")
+    IO.write(file, "Cytat: #{result["en"]}\n")
+    IO.write(file, "Polaryzacja sentymentu: #{result["result"]["polarity"]}\n")
+    IO.write(file, "***********************************************\n")
+  end
+end
+```
+
+##### test
+
+Na koniec przetestowałem działanie programu dla następujących parametrów:
+* max_number = 100
+* threshold = 0.1
+
+W pliku result.txt, mogłem znaleźć przetworzone cytaty, oto przykładowo 4 pierwsze:
+```
+Autor: Linus Torvalds
+Cytat: See, you not only have to be a good coder to create a system like Linux, you have to be a sneaky bastard too ;-)
+Polaryzacja sentymentu: 0.32
+***********************************************
+Autor: Ken Thompson
+Cytat: One of my most productive days was throwing away 1,000 lines of code.
+Polaryzacja sentymentu: 0.5
+***********************************************
+Autor: Simon Peyton Jones
+Cytat: I characterize functional programming as a radical and elegant attack on the whole enterprise of writing programs.
+Polaryzacja sentymentu: 0.35
+***********************************************
+Autor: Linus Torvalds
+Cytat: If you need more than 3 levels of indentation, you're screwed anyway, and should fix your program.
+Polaryzacja sentymentu: 0.5
+***********************************************
+.
+.
+.
+```
 
 ## Podsumowanie
 
-![trends](images/trends.png)
+Elixir GenStage jest idealnym narzędzięm do sekwencyjnego przetwarzania danych i oceniam go bardzo pozytywnie. Nie jest to co prawda bardzo popularne narzędzię ale wydaje się bardzo przydatne, szczególnie do przetwarzania jakichś wiekszych ilości danych bądź zdarzeń.
+
+<p align=center>
+  <img src=images/trends.png/>
+</p>

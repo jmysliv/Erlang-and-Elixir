@@ -5,3 +5,4 @@ Programming in Erlang and Elixir
 * Lab2: functional programming in Erlang
 * Lab3: programming processes in Erlang
 * pollution: mini project developed over several classes.
+* elixir_gen_stage: mini project with selected technology: Elixir GenStage

@@ -1,39 +1,188 @@
-"{result:{type:positive,polarity:0.18},en:Reviews and pair programming provide programmers with something their work would not otherwise have: an audience. Sunlight, it is said is a powerful disinfectant. An immediate audience of one's peers provides immediate incentives to programmers to keep their code clear and comprehensible, as well as functional.,author:Joseph Yoder (computer scientist)}"
-"{result:{type:positive,polarity:0.26},en:If you want to set off and go develop some grand new thing, you don't need millions of dollars of capitalization. You need enough pizza and Diet Coke to stick in your refrigerator, a cheap PC to work on, and the dedication to go through with it.,author:John Carmack}"
-"{result:{type:positive,polarity:0.25},en:Before software can be reusable it first has to be usable.,author:Ralph Johnson (computer scientist)}"
-"{result:{type:positive,polarity:0.18},en:C makes it easy to shoot yourself in the foot; C++ makes it harder, but when you do it blows your whole leg off.,author:Bjarne Stroustrup}"
-"{result:{type:positive,polarity:0.28},en:One of the greatest joys in computer programming is discovering a new, faster, more efficient algorithm for doing something — particularly if a lot of well-respected people have come up with worse solutions.,author:Danny Hillis}"
-"{result:{type:positive,polarity:0.5},en:The best way to predict the future is to invent it.,author:Alan Kay}"
-"{result:{type:positive,polarity:0.5},en:The cheapest, fastest, and most reliable components are those that aren’t there.,author:Gordon Bell}"
-"{result:{type:positive,polarity:0.5},en:The code you write makes you a programmer. The code you delete makes you a good one. The code you don't have to write makes you a great one.,author:Mario Fusco}"
-"{result:{type:positive,polarity:0.36},en:There certainly will be job disruption. Because what's going to happen is robots will be able to do everything better than us.,author:Elon Musk}"
-"{result:{type:positive,polarity:1.0},en:The best minds of my generation are thinking about how to make people click ads.,author:Jeff Hammerbacher}"
-"{result:{type:positive,polarity:0.2},en:The more varieties of different kinds of notations are still useful — don’t only read the people who code like you.,author:Donald Knuth}"
-"{result:{type:positive,polarity:0.2},en:If I had followed my heart instead of advice, dBASE would be much closer to perfection today.,author:Wayne Ratliff}"
-"{result:{type:positive,polarity:0.6},en:Are you quite sure that all those bells and whistles, all those wonderful facilities of your so called powerful programming languages, belong to the solution set rather than the problem set?,author:Edsger W. Dijkstra}"
-"{result:{type:positive,polarity:0.25},en:You might not think that programmers are artists, but programming is an extremely creative profession. It's logic-based creativity.,author:John Romero}"
-"{result:{type:positive,polarity:0.12},en:It's fun to sit at a terminal and let the code flow. It sounds strange, but it just comes out my brain; once I'm started, I don't have to think about it.,author:Gary Kildall}"
-"{result:{type:positive,polarity:0.5},en:Don't worry about anything. Just do what you can and be the best you can be.,author:Douglas Crockford}"
-"{result:{type:positive,polarity:0.7},en:Good people with a good process will outperform good people with no process every time.,author:Grady Booch}"
-"{result:{type:positive,polarity:0.5},en:When a task cannot be partitioned because of sequential constraints, the application of more effort has no effect on the schedule. The bearing of a child takes nine months, no matter how many women are assigned.,author:Fred Brooks}"
-"{result:{type:positive,polarity:0.47},en:Maintenance cost is strongly affected by the number of users. More users find more bugs.,author:Fred Brooks}"
-"{result:{type:positive,polarity:0.13},en:In the case of the Analytical Engine, we have undoubtedly to lay out a certain capital of analytical labour in one particular line, but this is in order that the engine may bring us in a much larger return in another line.,author:Ada Lovelace}"
-"{result:{type:positive,polarity:0.35},en:Every good work of software starts by scratching a developer’s personal itch.,author:Eric S. Raymond}"
-"{result:{type:positive,polarity:0.71},en:In JavaScript, there is a beautiful, elegant, highly expressive language that is buried under a steaming pile of good intentions and blunders.,author:Douglas Crockford}"
-"{result:{type:positive,polarity:0.35},en:Cool URIs don't change.,author:Tim Berners-Lee}"
-"{result:{type:positive,polarity:0.22},en:We're no longer in the days where everything is super well crafted. But at the heart of the programs that make it to the top, you'll find that the key internal code was done by a few people who really know what they were doing.,author:Bill Gates}"
-"{result:{type:positive,polarity:0.21},en:Putting a new feature into a program is important, but refactoring so new features can be added in the future is equally important.,author:Ward Cunningham}"
-"{result:{type:positive,polarity:0.71},en:In JavaScript, there is a beautiful, elegant, highly expressive language that is buried under a steaming pile of good intentions and blunders.,author:Douglas Crockford}"
-"{result:{type:positive,polarity:0.37},en:I'm not a great programmer; I'm just a good programmer with great habits.,author:Kent Beck}"
-"{result:{type:positive,polarity:0.52},en:Is studying computer science the best way to prepare to be a programmer? No. the best way to prepare is to write programs, and to study great programs that other people have written.,author:Bill Gates}"
-"{result:{type:positive,polarity:0.36},en:By June 1949 people had begun to realize that it was not so easy to get programs right as at one time appeared.,author:Maurice Wilkes}"
-"{result:{type:positive,polarity:0.49},en:The best programmers are not marginally better than merely good ones. They are an order-of-magnitude better, measured by whatever standard: conceptual creativity, speed, ingenuity of design, or problem-solving ability.,author:Randall E. Stross}"
-"{result:{type:positive,polarity:0.25},en:You might not think that programmers are artists, but programming is an extremely creative profession. It's logic-based creativity.,author:John Romero}"
-"{result:{type:positive,polarity:0.35},en:Every good work of software starts by scratching a developer’s personal itch.,author:Eric S. Raymond}"
-"{result:{type:positive,polarity:0.36},en:By June 1949 people had begun to realize that it was not so easy to get programs right as at one time appeared.,author:Maurice Wilkes}"
-"{result:{type:positive,polarity:0.21},en:Putting a new feature into a program is important, but refactoring so new features can be added in the future is equally important.,author:Ward Cunningham}"
-"{result:{type:positive,polarity:0.16},en:I always spend a day a week learning new stuff. That means I spend 20% more of my time than my colleagues learning new stuff. Now 20% at compound interest means that after four and a half years I will know twice as much as them.,author:Richard Hamming}"
-"{result:{type:positive,polarity:0.2},en:Talk is cheap. Show me the code.,author:Linus Torvalds}"
-"{result:{type:positive,polarity:0.35},en:I characterize functional programming as a radical and elegant attack on the whole enterprise of writing programs.,author:Simon Peyton Jones}"
-"{result:{type:positive,polarity:0.14},en:Sometimes there is a silver bullet for boosting software engineering productivity. But you need to shoot the right person.,author:Michael Stal}"
-"{result:{type:positive,polarity:0.14},en:First, my wife, my colleagues, and my editors find me to err far more often in optimism than in pessimism. I am, after all, a programmer by background, and optimism is an occupational disease of our craft.,author:Fred Brooks}"
+Autor: Linus Torvalds
+Cytat: See, you not only have to be a good coder to create a system like Linux, you have to be a sneaky bastard too ;-)
+Polaryzacja sentymentu: 0.32
+***********************************************
+Autor: Ken Thompson
+Cytat: One of my most productive days was throwing away 1,000 lines of code.
+Polaryzacja sentymentu: 0.5
+***********************************************
+Autor: Simon Peyton Jones
+Cytat: I characterize functional programming as a radical and elegant attack on the whole enterprise of writing programs.
+Polaryzacja sentymentu: 0.35
+***********************************************
+Autor: Linus Torvalds
+Cytat: If you need more than 3 levels of indentation, you're screwed anyway, and should fix your program.
+Polaryzacja sentymentu: 0.5
+***********************************************
+Autor: Paul Graham (programmer)
+Cytat: The top 5% of programmers probably write 99% of the good software.
+Polaryzacja sentymentu: 0.6
+***********************************************
+Autor: Donald Knuth
+Cytat: I make mistakes because I’m always operating at my limit. If I only stay in comfortable territory all the time, that’s not so much fun.
+Polaryzacja sentymentu: 0.12
+***********************************************
+Autor: John von Neumann
+Cytat: A large part of mathematics which becomes useful developed with absolutely no desire to be useful, and in a situation where nobody could possibly know in what area it would become useful.
+Polaryzacja sentymentu: 0.16
+***********************************************
+Autor: Linus Torvalds
+Cytat: Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program.
+Polaryzacja sentymentu: 0.38
+***********************************************
+Autor: Daniel T. Barry
+Cytat: Reliable computations are obtainable from buggy programs, which after all, are the only kind of programs there are.
+Polaryzacja sentymentu: 0.3
+***********************************************
+Autor: Toru Iwatani
+Cytat: I'm interested in creating images that communicate with people.
+Polaryzacja sentymentu: 0.25
+***********************************************
+Autor: Joseph Yoder (computer scientist)
+Cytat: Reviews and pair programming provide programmers with something their work would not otherwise have: an audience. Sunlight, it is said is a powerful disinfectant. An immediate audience of one's peers provides immediate incentives to programmers to keep their code clear and comprehensible, as well as functional.
+Polaryzacja sentymentu: 0.18
+***********************************************
+Autor: Danny Hillis
+Cytat: One of the greatest joys in computer programming is discovering a new, faster, more efficient algorithm for doing something — particularly if a lot of well-respected people have come up with worse solutions.
+Polaryzacja sentymentu: 0.28
+***********************************************
+Autor: Donald Knuth
+Cytat: I make mistakes because I’m always operating at my limit. If I only stay in comfortable territory all the time, that’s not so much fun.
+Polaryzacja sentymentu: 0.12
+***********************************************
+Autor: Jef Raskin
+Cytat: A computer shall not waste your time or require you to do more work than is strictly necessary.
+Polaryzacja sentymentu: 0.2
+***********************************************
+Autor: Douglas Crockford
+Cytat: JavaScript is the only language that I'm aware of that people feel they don't need to learn before they start using it.
+Polaryzacja sentymentu: 0.12
+***********************************************
+Autor: Ada Lovelace
+Cytat: The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.
+Polaryzacja sentymentu: 0.37
+***********************************************
+Autor: Richard Stallman
+Cytat: I have met bright students in computer science who have never seen the source code of a large program. They may be good at writing small programs, but they can't begin to learn the different skills of writing large ones if they can't see how others have done it.
+Polaryzacja sentymentu: 0.31
+***********************************************
+Autor: Kent Beck
+Cytat: I'm not a great programmer; I'm just a good programmer with great habits.
+Polaryzacja sentymentu: 0.37
+***********************************************
+Autor: Linus Torvalds
+Cytat: Most good programmers do programming not because they expect to get paid or get adulation by the public, but because it is fun to program.
+Polaryzacja sentymentu: 0.38
+***********************************************
+Autor: Alan Perlis
+Cytat: The best book on programming for the layman is Alice in Wonderland, but that's because it's the best book on anything for the layman.
+Polaryzacja sentymentu: 1.0
+***********************************************
+Autor: Gordon Bell
+Cytat: The cheapest, fastest, and most reliable components are those that aren’t there.
+Polaryzacja sentymentu: 0.5
+***********************************************
+Autor: Tim Berners-Lee
+Cytat: To be a hacker - when I use the term - is somebody who is creative and does wonderful things.
+Polaryzacja sentymentu: 0.75
+***********************************************
+Autor: Ada Lovelace
+Cytat: The science of operations, as derived from mathematics more especially, is a science of itself, and has its own abstract truth and value.
+Polaryzacja sentymentu: 0.37
+***********************************************
+Autor: Harlan Mills
+Cytat: An interactive debugger is an outstanding example of what is not needed - it encourages trial-and-error hacking rather than systematic design, and also hides marginal people barely qualified for precision programming.
+Polaryzacja sentymentu: 0.28
+***********************************************
+Autor: Leslie Lamport
+Cytat: A distributed system is one in which the failure of a computer you didn’t even know existed can render your own computer unusable.
+Polaryzacja sentymentu: 0.14
+***********************************************
+Autor: Douglas Crockford
+Cytat: Good architecture is necessary to give programs enough structure to be able to grow large without collapsing into a puddle of confusion.
+Polaryzacja sentymentu: 0.28
+***********************************************
+Autor: Marvin Minsky
+Cytat: Computer languages of the future will be more concerned with goals and less with procedures specified by the programmer.
+Polaryzacja sentymentu: 0.11
+***********************************************
+Autor: Daniel T. Barry
+Cytat: Various studies indicate that the optimal team size is between 2 and 5, with 3 being the mode. With more than 5 team members, team management begins to dominate the work.
+Polaryzacja sentymentu: 0.25
+***********************************************
+Autor: Fred Brooks
+Cytat: Having a system architect is the most important single step toward conceptual integrity. After teaching a software engineering laboratory more than 20 times, I came to insist that student teams as small as four people choose a manager and a separate architect.
+Polaryzacja sentymentu: 0.2
+***********************************************
+Autor: Danny Hillis
+Cytat: A skilled programmer is like a poet who can put into words those ideas that others find inexpressible.
+Polaryzacja sentymentu: 0.28
+***********************************************
+Autor: Charles Simonyi
+Cytat: I think the best way to supervise is by personal example and by frequent code reviews.
+Polaryzacja sentymentu: 0.37
+***********************************************
+Autor: John Carmack
+Cytat: If you want to set off and go develop some grand new thing, you don't need millions of dollars of capitalization. You need enough pizza and Diet Coke to stick in your refrigerator, a cheap PC to work on, and the dedication to go through with it.
+Polaryzacja sentymentu: 0.26
+***********************************************
+Autor: Edsger W. Dijkstra
+Cytat: If you want more effective programmers, you will discover that they should not waste their time debugging, they should not introduce the bugs to start with.
+Polaryzacja sentymentu: 0.4
+***********************************************
+Autor: Fred Brooks
+Cytat: Very good professional programmers are ten times as productive as poor ones, at same training and two-year experience level.
+Polaryzacja sentymentu: 0.12
+***********************************************
+Autor: Eric S. Raymond
+Cytat: Computer science education cannot make anybody an expert programmer any more than studying brushes and pigment can make somebody an expert painter.
+Polaryzacja sentymentu: 0.5
+***********************************************
+Autor: Edsger W. Dijkstra
+Cytat: Are you quite sure that all those bells and whistles, all those wonderful facilities of your so called powerful programming languages, belong to the solution set rather than the problem set?
+Polaryzacja sentymentu: 0.6
+***********************************************
+Autor: Joseph Yoder (computer scientist)
+Cytat: Reviews and pair programming provide programmers with something their work would not otherwise have: an audience. Sunlight, it is said is a powerful disinfectant. An immediate audience of one's peers provides immediate incentives to programmers to keep their code clear and comprehensible, as well as functional.
+Polaryzacja sentymentu: 0.18
+***********************************************
+Autor: John Warnock
+Cytat: As with most projects, the last two percent takes fifty percent of the time.
+Polaryzacja sentymentu: 0.25
+***********************************************
+Autor: Bill Gates
+Cytat: If you ever talk to a great programmer, you'll find he knows his tools like an artist knows his paintbrushes.
+Polaryzacja sentymentu: 0.8
+***********************************************
+Autor: Fred Brooks
+Cytat: Conceptual integrity is the most important consideration in system design. It is better to have a system omit certain anomalous features and improvements, but to reflect one set of design ideas, than to have one that contains many good but independent and uncoordinated ideas.
+Polaryzacja sentymentu: 0.42
+***********************************************
+Autor: Danny Hillis
+Cytat: Every computer language has its Shakespeares, and it is a joy to read their code. A well-written computer program possesses style, finesse, even humor—and a clarity that rivals the best prose.
+Polaryzacja sentymentu: 0.9
+***********************************************
+Autor: Tom DeMarco
+Cytat: People under pressure don’t work better; they just work faster.
+Polaryzacja sentymentu: 0.5
+***********************************************
+Autor: Marvin Minsky
+Cytat: Computer languages of the future will be more concerned with goals and less with procedures specified by the programmer.
+Polaryzacja sentymentu: 0.11
+***********************************************
+Autor: Marijn Haverbeke
+Cytat: Computers themselves can do only stupidly straightforward things. The reason they are so useful is that they do these things at an incredibly high speed.
+Polaryzacja sentymentu: 0.21
+***********************************************
+Autor: Danny Hillis
+Cytat: Anyone who has ever written a program knows that telling a computer what you want it to do is not as easy as it sounds. Every detail of the computer’s desired operation must be precisely described. For instance, if you tell an accounting program to bill your clients for the amount that each owes, then the computer will send out a weekly bill for $0.00 to clients who owe nothing.
+Polaryzacja sentymentu: 0.28
+***********************************************
+Autor: Donald Knuth
+Cytat: I’ve got this need to program. I wake up in the morning with sentences of a literate program. Before breakfast — I’m sure poets must feel this — I have to go to the computer and write this paragraph and then I can eat and I’m happy.
+Polaryzacja sentymentu: 0.22
+***********************************************
+Autor: John Romero
+Cytat: You might not think that programmers are artists, but programming is an extremely creative profession. It's logic-based creativity.
+Polaryzacja sentymentu: 0.25
+***********************************************
