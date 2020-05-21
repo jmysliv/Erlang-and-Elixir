@@ -54,6 +54,10 @@ GenStages wyróżnia trzy etapy.
  * B to producent-konsument, który przekazuję żądania do A, oraz przetważa otrzymane od producenta dane i wysyła do konsumenta
  * C to konsument, który otrzymaje dane i przetważa je w zdefiniowany przez programistę sposób
 
+ <p align=center>
+  <img src=images/flow.png/>
+</p>
+
  ### Producent
 
 W producencie najważniejsze są dwie funkcje:
@@ -113,6 +117,10 @@ defmodule Consumer do
     end
 ```
 
+<p align=center>
+  <img src=images/demand.jpg/>
+</p>
+
 ### Stosowanie
 
 Schemat jest bardzo prosty, jednak pozwala nam tworzyć również bardziej skomplikowane projekty, w których może pracować wielu producentów i konsumentów. Ogólnie GenStage świetnie nadaje się do tworzenia:
@@ -122,7 +130,11 @@ Schemat jest bardzo prosty, jednak pozwala nam tworzyć również bardziej skomp
 * Obsług zdarzeń
 
 <p align=center>
-  <img src=images/flow.png/>
+  <img src=images/dispatcher.jpg/>
+</p>
+
+<p align=center>
+  <img src=images/broadcast.jpg/>
 </p>
 
 
